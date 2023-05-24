@@ -130,7 +130,7 @@ const getAllBooksHandler = (request, h) => {
 
 const getBookByIdHandler = (request, h) => {
   const { bookId } = request.params;
-  const book = books.filter((n) => n.id === id)[0];
+  const book = books.filter((n) => n.id === bookId)[0];
 
   if (book) {
     const response = h.response({
@@ -176,7 +176,7 @@ const editBookByIdHandler = (request, h) => {
   const finished = pageCount === readPage;
   const updatedAt = new Date().toISOString();
 
-  const index = books.findIndex((note) => note.id === bookId);
+  const index = books.findIndex((book) => book.id === bookId);
   if (index !== -1) {
     books[index] = {
       ...books[index],
